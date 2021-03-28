@@ -25,7 +25,6 @@ export function TaskList() {
       title: newTaskTitle,
       isComplete: false
     };
-
     setTasks([...tasks, task]);
     setNewTaskTitle("");
   }
@@ -39,25 +38,21 @@ export function TaskList() {
         // } else {
         //   task.isComplete = true
         // }
-        task.isComplete = !task.isComplete 
+        task.isComplete = !task.isComplete
         // console.log(task.title + " " + task.id + " " + task.isComplete)
         //equivalente
         // task.isComplete = task.isComplete === true ? false : true
       }
-      console.log(tasks)
+      setTasks([...tasks]);
+      setNewTaskTitle("");
     });
-    // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
   }
 
   function handleRemoveTask(id: number) {
-    tasks.forEach(task => {
-      if (task.id === id) {
-        tasks.splice(id) 
-      }
-    });
-
-
-    // Remova uma task da listagem pelo ID
+  tasks.splice(tasks.findIndex(task => (task.id === id)),1)
+  setTasks([...tasks]);
+  setNewTaskTitle("");
+  
   }
 
   return (
