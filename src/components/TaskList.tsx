@@ -32,16 +32,7 @@ export function TaskList() {
   function handleToggleTaskCompletion(id: number) {
     tasks.forEach(task => {
       if (task.id === id) {
-        //equivalente
-        // if (task.isComplete === true) {
-        //   task.isComplete = false
-        // } else {
-        //   task.isComplete = true
-        // }
         task.isComplete = !task.isComplete
-        // console.log(task.title + " " + task.id + " " + task.isComplete)
-        //equivalente
-        // task.isComplete = task.isComplete === true ? false : true
       }
       setTasks([...tasks]);
       setNewTaskTitle("");
