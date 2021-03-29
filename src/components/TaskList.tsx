@@ -16,7 +16,7 @@ export function TaskList() {
 
   function handleCreateNewTask() {
     if (newTaskTitle.length === 0) {
-      throw new Error;
+      return
     }
     const high = 1000000
     const low = 1
@@ -32,7 +32,16 @@ export function TaskList() {
   function handleToggleTaskCompletion(id: number) {
     tasks.forEach(task => {
       if (task.id === id) {
+        //equivalente
+        // if (task.isComplete === true) {
+        //   task.isComplete = false
+        // } else {
+        //   task.isComplete = true
+        // }
         task.isComplete = !task.isComplete
+        // console.log(task.title + " " + task.id + " " + task.isComplete)
+        //equivalente
+        // task.isComplete = task.isComplete === true ? false : true
       }
       setTasks([...tasks]);
       setNewTaskTitle("");
@@ -54,7 +63,7 @@ export function TaskList() {
         <div className="input-group">
           <input
             type="text"
-            placeholder="Adicionar novo to.do"
+            placeholder="Adicionar novo todo"
             onChange={(e) => setNewTaskTitle(e.target.value)}
             value={newTaskTitle}
           />
